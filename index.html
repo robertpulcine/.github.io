@@ -57,7 +57,6 @@
     }
 
     /* 3. KILL THE DEFAULT GRAY OVERLAY */
-    /* We must keep this to prevent the template from making it gray again */
     .s-intro__bg::after {
         content: none !important;
         display: none !important;
@@ -69,13 +68,13 @@
         position: relative !important;
         z-index: 2 !important;
         width: 100%;
-        margin-top: -15vh !important; /* Pulls content higher up */
+        margin-top: -15vh !important; 
     }
 
     /* 5. SQUARE PROFILE PICTURE */
     .profile-pic {
-        width: 300px;
-        height: 500px;
+        width: 700px;
+        height: 1100px;
         object-fit: cover;
         border-radius: 0 !important; 
         border: 4px solid #e0e0e0;
@@ -84,7 +83,7 @@
         box-shadow: 0 15px 30px rgba(0,0,0,0.4);
     }
 
-    /* 6. TEXT COLORS */
+    /* 6. GENERAL TEXT COLORS */
     .s-intro h1, .s-intro h3, .text-pretitle, a, span {
         color: #e0e0e0 !important; 
     }
@@ -94,6 +93,36 @@
     .btn--primary, button.btn--primary {
         background-color: #500000 !important;
         border-color: #500000 !important;
+    }
+
+    /* --- 7. HEADER & MENU BAR (New Addition) --- */
+    
+    /* The main bar */
+    .s-header, 
+    .s-header__block, 
+    .s-header__nav-wrap {
+        background-color: #500000 !important; /* Maroon */
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important; /* Subtle border */
+    }
+
+    /* Text inside the menu */
+    .s-header__nav a,
+    .site-title a {
+        color: #e0e0e0 !important;
+    }
+    
+    /* Hover effect for menu links */
+    .s-header__nav a:hover {
+        color: #ffffff !important;
+    }
+
+    /* The 'Menu' toggle button (Mobile) */
+    .s-header__menu-toggle span {
+        background-color: #e0e0e0 !important;
+    }
+    .s-header__menu-toggle span::before,
+    .s-header__menu-toggle span::after {
+        background-color: #e0e0e0 !important;
     }
 </style>
 </head>
