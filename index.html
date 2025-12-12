@@ -20,19 +20,17 @@
     <link rel="manifest" href="site.webmanifest">
 
 <style>
-    /* 1. LAYOUT & CENTERING */
+    /* 1. FORCE LAYOUT */
     section#intro.s-intro {
         position: relative;
+        height: 100vh;
         min-height: 100vh;
         background-color: #500000 !important;
         overflow: hidden;
-        display: flex !important; 
-        align-items: center !important; 
-        justify-content: center !important;
-        text-align: center !important;
+        padding-top: 0 !important; /* Remove default padding */
     }
 
-    /* 2. BACKGROUND IMAGE WITH MAROON TINT */
+    /* 2. BACKGROUND IMAGE (Kyle Field) */
     section#intro .s-intro__bg {
         position: absolute !important;
         inset: 0 !important;
@@ -41,79 +39,87 @@
         opacity: 1 !important;
         z-index: 0 !important;
         
-        /* Fallback color */
         background-color: #500000 !important; 
         
-        /* Image + Tint */
-        /* Change 'images/intro-bg.jpg' to your actual background image file */
+        /* UPDATED: kylefield.jpg */
         background-image: 
             linear-gradient(rgba(80, 0, 0, 0.85), rgba(80, 0, 0, 0.85)), 
-            url('kylefield.jpg') !important;
+            url('images/kylefield.jpg') !important;
             
         background-repeat: no-repeat !important;
         background-position: center center !important;
         background-size: cover !important;
     }
 
-    /* 3. HIDE DEFAULT GRAY OVERLAY */
+    /* 3. KILL GRAY OVERLAY */
     .s-intro__bg::after {
         content: none !important;
         display: none !important;
         opacity: 0 !important;
     }
 
-    /* 4. CONTENT POSITIONING (MOVED HIGHER) */
+    /* 4. FLEX CONTAINER FOR VERTICAL SPACING */
     .s-intro__content {
         position: relative !important;
         z-index: 2 !important;
         width: 100%;
-        
-        /* CHANGED: Increased from -15vh to -22vh to move name closer to top */
-        margin-top: -22vh !important; 
+        height: 100vh; /* Force full height */
     }
 
-    /* 5. SQUARE PROFILE PICTURE */
+    .s-intro__text {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        /* This pushes Name to top, Image to bottom */
+        justify-content: space-between !important; 
+        align-items: center !important;
+        position: static !important; /* Reset absolute positioning */
+    }
+
+    /* 5. NAME & TITLE POSITIONING */
+    .intro-header-wrapper {
+        margin-top: 18vh; /* Push down from top of screen */
+        text-align: center;
+    }
+
+    /* 6. PROFILE PICTURE (Bottom Anchored) */
     .profile-pic {
-        width: 900px;
-        height: 1200px;
+        /* Size adjustments */
+        width: auto; 
+        max-width: 90vw; /* Ensure it fits on mobile width */
+        height: auto;
+        max-height: 55vh; /* Takes up bottom 55% of screen */
+        
         object-fit: cover;
         border-radius: 0 !important; 
         border: 4px solid #e0e0e0;
-        margin: 30px auto 30px auto;
+        border-bottom: 0 !important; /* Removes border at bottom edge for clean look */
+        
+        /* Positioning */
+        margin-bottom: 0 !important; /* Touches the white section */
+        margin-top: auto !important;
         display: block;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
     }
 
-    /* 6. GENERAL TEXT COLORS */
+    /* 7. TEXT COLORS */
     .s-intro h1, .s-intro h3, .text-pretitle, a, span {
         color: #e0e0e0 !important; 
     }
     a:hover {
         color: #ffffff !important;
     }
-    .btn--primary, button.btn--primary {
-        background-color: #500000 !important;
-        border-color: #500000 !important;
-    }
-
-    /* 7. MAROON HEADER / MENU BAR */
-    .s-header, 
-    .s-header__block, 
-    .s-header__nav-wrap {
+    
+    /* 8. MAROON HEADER */
+    .s-header, .s-header__block, .s-header__nav-wrap {
         background-color: #500000 !important; 
         border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
-    .s-header__nav a, .site-title a {
-        color: #e0e0e0 !important;
-    }
-    .s-header__nav a:hover {
-        color: #ffffff !important;
-    }
-    .s-header__menu-toggle span,
-    .s-header__menu-toggle span::before,
-    .s-header__menu-toggle span::after {
-        background-color: #e0e0e0 !important;
-    }
+    .s-header__nav a, .site-title a { color: #e0e0e0 !important; }
+    .s-header__nav a:hover { color: #ffffff !important; }
+    .s-header__menu-toggle span { background-color: #e0e0e0 !important; }
+    .s-header__menu-toggle span::before, .s-header__menu-toggle span::after { background-color: #e0e0e0 !important; }
+
 </style>
 </head>
 
@@ -145,7 +151,7 @@
                         <li><a href="#colophon" class="smoothscroll">Contact</a></li>
                     </ul>
                 </nav> 
-                </div> 
+            </div> 
         </header> 
 
 
@@ -153,18 +159,19 @@
 
             <div class="s-intro__bg"></div>
 
-            <div class="row">
+            <div class="row" style="max-width: 100%; width: 100%;">
                 <div class="column lg-12 s-intro__content">
 
                     <div class="s-intro__text">
                         
-                        <h1 class="s-intro__text-huge animate-on-load" style="font-size: 80px; line-height: 1.1;">
-                            Robert Pulcine
-                        </h1>
-
-                        <h3 class="animate-on-load" style="margin-top: 10px; margin-bottom: 20px;">
-                            Electrical Engineering Student @ Texas A&M
-                        </h3>
+                        <div class="intro-header-wrapper">
+                            <h1 class="s-intro__text-huge animate-on-load" style="font-size: 80px; line-height: 1.1; margin-bottom: 10px;">
+                                Robert Pulcine
+                            </h1>
+                            <h3 class="animate-on-load" style="margin-top: 0;">
+                                Electrical Engineering Student @ Texas A&M
+                            </h3>
+                        </div>
 
                         <img src="bgpic.jpeg" alt="Robert Pulcine" class="profile-pic animate-on-load">
                         
