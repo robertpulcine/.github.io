@@ -27,24 +27,32 @@
 <style>
     /* 1. Force the main background to Maroon */
     /* 1. Let the background image show (the tint already makes it maroon) */
+/* Intro section must be the positioning reference */
 .s-intro {
     position: relative;
-    overflow: hidden;
+    min-height: 100vh;
     background: transparent !important;
+    overflow: hidden;
 }
 
-/* Make the bg fill the section and sit behind text */
+/* Background layer fills the whole intro */
 .s-intro__bg {
     position: absolute;
-    inset: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     z-index: 0;
+
+    background-image: linear-gradient(rgba(80, 0, 0, 0.7), rgba(80, 0, 0, 0.7)), url('bgpic.jpeg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    opacity: 1 !important;
 }
 
-/* Keep the text above the bg */
+/* Keep text above background */
 .s-intro__text {
     position: relative;
     z-index: 1;
 }
+
 
 
     /* 2. The "Tint" Trick: Put Maroon ON TOP of the image */
@@ -155,23 +163,23 @@
         ================================================== -->
         <section id="intro" class="s-intro">
 
-            <div class="row">
-                <div class="column lg-12 s-intro__content">
+    <div class="s-intro__bg"></div>
 
-                    <div class="s-intro__text">
-                        <h1 class="s-intro__text-huge animate-on-load" style="font-size: 100px;">
-                            Robert Pulcine
-                        </h1>
-                        <h3 class="animate-on-load">Electrical Engineering Student @ Texas A&M</h3>
-                    </div>
+    <div class="row">
+        <div class="column lg-12 s-intro__content">
 
-                    <div class="s-intro__bg"></div>
-
-
-                </div>
+            <div class="s-intro__text">
+                <h1 class="s-intro__text-huge animate-on-load" style="font-size: 100px;">
+                    Robert Pulcine
+                </h1>
+                <h3 class="animate-on-load">Electrical Engineering Student @ Texas A&M</h3>
             </div>
 
-        </section> <!-- end s-intro -->
+        </div>
+    </div>
+
+</section>
+
 
 
         <!-- about
