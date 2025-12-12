@@ -25,64 +25,68 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 <style>
-    /* 1. Intro Section - Flexbox for perfect centering */
+    /* --- 1. Intro Section Centering --- */
+    /* This forces content to the middle vertically and horizontally */
     .s-intro {
         position: relative;
         min-height: 100vh;
         background: transparent !important;
         overflow: hidden;
-        /* These lines force content to the middle vertically and horizontally */
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-        text-align: center;
+        display: flex !important; 
+        align-items: center !important; 
+        justify-content: center !important;
+        text-align: center !important;
     }
 
-    /* 2. Background Layer - Maroon Gradient Only (No stretching image) */
+    /* --- 2. Maroon Background Layer --- */
+    /* Ensures the background is Maroon, not gray */
     .s-intro__bg {
         position: absolute !important;
         inset: 0 !important;
         width: 100% !important;
         height: 100% !important;
         margin: 0 !important;
-        
-        /* Solid Maroon Gradient Background */
-        background: linear-gradient(135deg, #500000 0%, #2b0000 100%) !important;
         z-index: 0 !important;
+        /* Solid Maroon with a slight gradient for depth */
+        background: linear-gradient(135deg, #500000 0%, #350000 100%) !important;
     }
 
-    /* 3. Content Layer - Keeps text above background */
+    /* Keep content above the background */
     .s-intro__content,
     .s-intro__text {
         position: relative !important;
         z-index: 1 !important;
-        width: 100%; /* Ensure it spans width for centering */
+        width: 100%;
     }
 
-    /* 4. NEW: Profile Picture Styling */
+    /* --- 3. Square Profile Picture Styling --- */
     .profile-pic {
-        width: 220px;       /* Adjust size as needed */
-        height: 220px;
-        object-fit: cover;  /* Prevents squishing the face */
-        border-radius: 50%; /* Makes it a circle */
-        border: 4px solid #e0e0e0; /* Silver border to match text */
-        margin: 0 auto 30px auto; /* Centers the image and adds space below */
+        width: 300px;        /* Adjust size as desired */
+        height: 300px;
+        object-fit: cover;   /* Ensures the image stays a perfect square without stretching */
+        border: 4px solid #e0e0e0; /* Nice silver border */
+        /* margin: top right bottom left */
+        margin: 30px auto 30px auto; /* Centers image and adds space above/below */
         display: block;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Adds a slight shadow */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4); /* Adds depth */
     }
 
-    /* 5. General Text Colors */
+    /* --- 4. General Text Colors (White/Silver) --- */
     .btn--primary, button.btn--primary {
         background-color: #500000 !important;
         border-color: #500000 !important;
     }
 
-    a, span, .text-pretitle, h1, h3 {
+    /* Force all intro text to be light */
+    .s-intro h1, .s-intro h3, .text-pretitle {
         color: #e0e0e0 !important; 
     }
     
+    a, span {
+         color: #e0e0e0;
+    }
     a:hover {
-        color: #ffffff !important;
+        color: #ffffff;
     }
 </style>
 </head>
