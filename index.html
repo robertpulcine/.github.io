@@ -39,6 +39,33 @@
           Consolas, "Liberation Mono", "Courier New", monospace;
       }
 
+      .work-list{
+  margin-top:24px;
+  display:grid;
+  gap:18px;
+}
+.work-item{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:18px 18px 14px;
+}
+.work-title{
+  font-weight:600;
+  letter-spacing:.01em;
+}
+.work-meta{
+  margin-top:6px;
+  opacity:.75;
+  font-size:.95rem;
+}
+.work-item ul{
+  margin:12px 0 0;
+  padding-left:18px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+
       .btn{
   display:inline-block;
   margin-top:16px;
@@ -190,12 +217,51 @@
       </section>
 
       <section id="work">
-        <h2>Work</h2>
-        <p>
-          Placeholder: Highlight a few projects, roles, or accomplishments. You
-          can turn this into a list of links, case studies, or a portfolio grid.
-        </p>
-      </section>
+  <h2>Work</h2>
+  <p>
+    A mix of hands-on leadership experience and growing electrical engineering
+    work—focused on building systems that are reliable, efficient, and easy to
+    maintain.
+  </p>
+
+  <div class="work-list">
+    <article class="work-item">
+      <div class="work-title">
+        <strong>Incoming Intern</strong> — Tom Green &amp; Company Engineers
+      </div>
+      <div class="work-meta">Summer 2026</div>
+      <ul>
+        <li>Incoming summer intern (details coming soon).</li>
+        <li>Interested in power systems, circuits, and practical engineering work.</li>
+      </ul>
+    </article>
+
+    <article class="work-item">
+      <div class="work-title">
+        <strong>Kitchen Manager</strong> — Stay Classy Waco (Waco, TX)
+      </div>
+      <div class="work-meta">Nov 2021 – May 2023</div>
+      <ul>
+        <li>Led daily kitchen operations (prep, sanitation, inventory) and managed a 4-person team.</li>
+        <li>Implemented workflow changes that improved kitchen efficiency by ~25%.</li>
+        <li>Balanced 20+ hrs/week of management responsibilities alongside full-time coursework.</li>
+      </ul>
+    </article>
+
+    <article class="work-item">
+      <div class="work-title"><strong>Leadership &amp; Involvement</strong></div>
+      <div class="work-meta">Texas A&amp;M University</div>
+      <ul>
+        <li>Professional Brotherhood of Engineers — internal/external committees; coordinated study rooms and bi-weekly service events.</li>
+        <li>IEEE (Texas A&amp;M Chapter) — workshops, technical talks, and networking to stay sharp and career-ready.</li>
+      </ul>
+      <div class="work-meta">
+        Skills: C++, Python, LTSpice, circuit analysis, digital logic design, Microsoft Office
+      </div>
+    </article>
+  </div>
+</section>
+
 
       <section id="contact">
   <h2>Contact</h2>
