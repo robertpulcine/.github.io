@@ -89,6 +89,19 @@
   border-color:rgba(255,255,255,.6);
 }
 
+.hero-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.subtitle{
+  margin:0;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  opacity: 0.85;
+  letter-spacing: 0.01em;
+}
 
 
       .btn{
@@ -249,8 +262,12 @@
 
     <main id="top">
       <div class="hero">
-        <h1>Rob Pulcine</h1>
-      </div>
+  <div class="hero-inner">
+    <h1>Rob Pulcine</h1>
+    <p class="subtitle">EE @ Texas A&amp;M</p>
+  </div>
+</div>
+
 
       <section id="about">
         <h2>About</h2>
