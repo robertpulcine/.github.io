@@ -17,29 +17,164 @@
       :root {
         color-scheme: dark;
       }
-      html,
-      body {
-        height: 100%;
-        margin: 0;
+
+      * {
+        box-sizing: border-box;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
+        margin: 0;
         background: #000;
         color: #fff;
         font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
           Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      nav {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        color: #fff;
+        white-space: nowrap;
+      }
+
+      .links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .links a {
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.9;
+      }
+
+      .links a:hover,
+      .links a:focus-visible {
+        opacity: 1;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      /* Layout */
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+
+      /* Hero (centered name) */
+      .hero {
+        min-height: calc(100vh - 58px); /* approximate header height */
         display: grid;
         place-items: center;
+        text-align: center;
       }
+
       h1 {
         margin: 0;
         font-weight: 600;
         font-size: clamp(2.5rem, 8vw, 6rem);
         letter-spacing: 0.02em;
       }
+
+      /* Sections */
+      section {
+        padding: 80px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        scroll-margin-top: 80px; /* prevents header overlap when jumping */
+      }
+
+      section h2 {
+        margin: 0 0 16px;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      section p {
+        margin: 0;
+        max-width: 70ch;
+        line-height: 1.7;
+        opacity: 0.9;
+      }
+
+      /* Small screens */
+      @media (max-width: 520px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .links {
+          justify-content: flex-start;
+        }
+        .hero {
+          min-height: calc(100vh - 92px);
+        }
+      }
     </style>
   </head>
 
   <body>
-    <h1>Rob Pulcine</h1>
-  </body>
-</html>
+    <header>
+      <nav>
+        <a class="brand" href="#top">Rob Pulcine</a>
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <h1>Rob Pulcine</h1>
+      </div>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          Placeholder: Write a short bio here—who you are, what you do, and what
+          you care about. Add a couple of sentences that feel like you.
+        </p>
+      </section>
+
+      <section id="work">
+        <h2>Work</h2>
+        <p>
+          Placeholder: Highlight a few projects, roles, or accomplishments. You
+          can turn this into a list of links, case studies, or a portfolio grid.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Placeholder: Add your preferred contact methods (email, socials,
+          calendar link). Example: <strong>rob@example.com</strong>
